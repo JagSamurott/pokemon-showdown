@@ -1643,6 +1643,9 @@ export class BattleActions {
 		const statTable = {atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe'};
 
 		let atkBoosts = attacker.boosts[attackStat];
+		if(attacker.hasAbility("Unaware") && move.overrideOffensivePokemon === 'target'){
+			atkBoosts = 0;
+		}
 		let defBoosts = defender.boosts[defenseStat];
 
 		let ignoreNegativeOffensive = !!move.ignoreNegativeOffensive;
